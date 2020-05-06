@@ -1,0 +1,6 @@
+PyAudio==0.2.11
+SpeechRecognition==3.8.1
+fleep==1.0.1
+arabic-reshaper==2.0.15
+python-bidi==0.4.2
+numpy
