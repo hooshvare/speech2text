@@ -10,10 +10,9 @@ class AudioReader(Reader):
         "fa-IR": "در حال بارگزاری!"
     }
 
-    def __init__(self, audio_file, language='fa-IR', verbose=False, safe_rtl=False):
-        super(AudioReader, self).__init__(language, verbose)
+    def __init__(self, audio_file, *args, **kwargs):
+        super(AudioReader, self).__init__(*args, **kwargs)
         self.audio_file = audio_file
-        self.safe_rtl = safe_rtl
 
     def read(self):
         audio = self.record(self.audio_file, self.language)

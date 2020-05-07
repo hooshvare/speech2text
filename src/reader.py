@@ -24,11 +24,12 @@ class Reader:
     }
     RECORD = {}
 
-    def __init__(self, language='fa-IR', verbose=False):
+    def __init__(self, language='fa-IR', verbose=True, safe_rtl=False):
         self.sr = sr
-        self.r = sr.Recognizer()
+        self.r = self.sr.Recognizer()
         self.language = language
         self.verbose = verbose
+        self.safe_rtl = safe_rtl
 
     @staticmethod
     def _print(message, verbose=False, safe_rtl=False):
@@ -47,7 +48,7 @@ class Reader:
             return False, err
         except self.sr.RequestError as e:
             err = self.RequestError.get(language, '').format(e)
-            self._print(err, self.verbose)
+            self._print(err, self.verbose, self.safe_rtl)
             return False, err
 
         return True, text
