@@ -9,8 +9,15 @@ from src.mic import MicrophoneReader
 from src.audio import AudioReader
 
 
-def main():
-    pass
+def str_to_bool(value):
+    if isinstance(value, bool):
+        return value
+    if value.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif value.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
 
 
 if __name__ == "__main__":
@@ -39,9 +46,11 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "-RTL",
         "--safe_rtl",
+        type=str_to_bool,
+        const=True,
         default=False,
+        nargs='?',
         help="Safe RTL format."
     )
 
