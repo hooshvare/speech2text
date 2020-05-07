@@ -34,6 +34,9 @@ python speech2text.py --type=mic --language=fa-IR
 | 3.7           |
 | 3.8           |
 
+## Versions
+-1 v1.0.0
+
 ## License
 
 Copyright (C) 2020, [Hooshvare Team](https://hooshvare.com/)
